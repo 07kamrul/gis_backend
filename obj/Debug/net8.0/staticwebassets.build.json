@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "qnPSNfxi1/z2S1H1NQgddWQD8ES0uxUn18VzEuPn0Zc=",
+  "Source": "gis_backend",
+  "BasePath": "_content/gis_backend",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
