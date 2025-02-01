@@ -133,3 +133,4 @@
 /Users/07kamrul/Desktop/kona/TourismAPI/gis_backend/gis_backend/obj/Debug/net8.0/gis_backend.pdb
 /Users/07kamrul/Desktop/kona/TourismAPI/gis_backend/gis_backend/obj/Debug/net8.0/gis_backend.genruntimeconfig.cache
 /Users/07kamrul/Desktop/kona/TourismAPI/gis_backend/gis_backend/obj/Debug/net8.0/ref/gis_backend.dll
+/Users/07kamrul/Desktop/kona/TourismAPI/gis_backend/gis_backend/obj/Debug/net8.0/gis_backend.sourcelink.json

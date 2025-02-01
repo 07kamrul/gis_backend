@@ -17,8 +17,14 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register(User user)
+    public async Task<IActionResult> Register([FromBody] User user)
     {
+        // Validate input
+        if (user == null || string.IsNullOrWhiteSpace(user.Email) || string.IsNullOrWhiteSpace(user.Password))
+        {
+            return BadRequest(new { Message = "Invalid user data. Please provide both email and password." });
+        }
+
         // Check if the email already exists
         if (await _context.Users.AnyAsync(u => u.Email == user.Email))
         {
@@ -34,8 +40,14 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login(string email, string password)
+    public async Task<IActionResult> Login([FromQuery] string email, [FromQuery] string password)
     {
+        // Validate input
+        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
+        {
+            return BadRequest(new { Message = "Invalid credentials. Please provide both email and password." });
+        }
+
         // Find the user by email and password
         var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email && u.Password == password);
 
