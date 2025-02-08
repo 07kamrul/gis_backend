@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("gis_backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+74168060d0210d21aad919af2fb7f522d4346063")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33faa0aeffa4d54512c8de4d3de8c01313e97556")]
 [assembly: System.Reflection.AssemblyProductAttribute("gis_backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("gis_backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

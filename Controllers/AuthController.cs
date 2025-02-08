@@ -60,4 +60,20 @@ public class AuthController : ControllerBase
         // Return the user details on successful login
         return Ok(new { Message = "Login successful!", User = user });
     }
+    
+    [HttpGet("users")]
+    public async Task<IActionResult> Users()
+    {
+        var users = await _context.Users
+            .Select(u => new 
+            { 
+                u.Id, 
+                u.Name, 
+                u.Email 
+            })
+            .ToListAsync();
+
+        return Ok(new { Message = "Get all users", Users = users });
+    }
+
 }
