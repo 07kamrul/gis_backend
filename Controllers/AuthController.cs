@@ -75,5 +75,27 @@ public class AuthController : ControllerBase
 
         return Ok(new { Message = "Get all users", Users = users });
     }
+    
+    [HttpGet("user")]
+    public async Task<IActionResult> User(int id)
+    {
+        var user = await _context.Users
+            .Where(u => u.Id == id)
+            .Select(u => new 
+            { 
+                u.Id, 
+                u.Name, 
+                u.Email 
+            })
+            .FirstOrDefaultAsync(); // Fetch a single user
+
+        if (user == null)
+        {
+            return NotFound(new { Message = "User not found" });
+        }
+
+        return Ok(new { Message = "User details", User = user });
+    }
+
 
 }
