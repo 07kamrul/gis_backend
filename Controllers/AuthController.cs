@@ -31,12 +31,37 @@ public class AuthController : ControllerBase
             return BadRequest(new { Message = "Email already exists. Please use a different email." });
         }
 
-        // Add the new user to the database
-        _context.Users.Add(user);
-        await _context.SaveChangesAsync();
+        // Begin a database transaction
+        using (var transaction = await _context.Database.BeginTransactionAsync())
+        {
+            try
+            {
+                // Add the new user to the database
+                _context.Users.Add(user);
+                await _context.SaveChangesAsync(); // Save user first to generate Id
 
-        // Return success message
-        return Ok(new { Message = "User registered successfully!", User = user });
+                // Add user location
+                _context.UserLocations.Add(new UserLocation
+                {
+                    UserId = user.Id,
+                    Latitude = 0.0,
+                    Longitude = 0.0,
+                    IsSharingLocation = false
+                });
+                await _context.SaveChangesAsync();
+
+                // Commit transaction if everything succeeds
+                await transaction.CommitAsync();
+
+                return Ok(new { Message = "User registered successfully!", User = user });
+            }
+            catch (Exception ex)
+            {
+                // Rollback the transaction on any error
+                await transaction.RollbackAsync();
+                return StatusCode(500, new { Message = "An error occurred during registration.", Error = ex.Message });
+            }
+        }
     }
 
     [HttpPost("login")]
