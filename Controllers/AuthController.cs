@@ -94,7 +94,8 @@ public class AuthController : ControllerBase
             { 
                 u.Id, 
                 u.Name, 
-                u.Email 
+                u.Email,
+                u.Password
             })
             .ToListAsync();
 
