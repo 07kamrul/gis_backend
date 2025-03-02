@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/gis_backend
+/bin/Debug/net9.0
+/obj/Debug/net9.0
+/obj/gis_backend.csproj.nuget.g.props
+/obj/gis_backend.csproj.nuget.dgspec.json
+/obj/gis_backend.csproj.nuget.g.targets
+/obj/project.assets.json
+/obj/project.nuget.cache
