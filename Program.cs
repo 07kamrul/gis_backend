@@ -1,3 +1,4 @@
+using gis_backend.ChatHub;
 using gis_backend.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -22,6 +23,9 @@ builder.Services.AddCors(options =>
 });
 
 var app = builder.Build();
+
+builder.Services.AddSignalR();
+app.MapHub<ChatHub>("/chatHub");
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
